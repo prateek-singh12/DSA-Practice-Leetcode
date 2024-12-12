@@ -8,7 +8,7 @@ public:
             res.pop();
             res.push((int)sqrt(top));
         }
-        for( int k: gifts){
+        while(!res.empty()){
             ans+=res.top();
             res.pop();
         }
