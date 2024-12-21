@@ -37,7 +37,8 @@ public:
                 int l = 0, r = levelSize - 1;
                 
                 while (l <= r) {
-                    auto leftNode = levelNodes[l], rightNode = levelNodes[r];
+                    TreeNode* leftNode = levelNodes[l];
+                    TreeNode* rightNode = levelNodes[r];
                     swap(leftNode->val, rightNode->val); //ptr to next level unchanged
                     l++;
                     r--;
