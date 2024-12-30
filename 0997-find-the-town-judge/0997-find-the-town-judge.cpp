@@ -1,12 +1,23 @@
 class Solution {
 public:
+    //METHOD -1 : USING TWO ARRAYS
     int findJudge(int n, vector<vector<int>>& trust) {
-        for(int i=0;i<trust.size()-1;i++){
-            if(trust[i][1]==trust[i+1][1]){
-                    continue;
-            }
-            return -1;
+        vector<int> indegree(n + 1);
+        vector<int> outdegree(n + 1);
+
+        for (auto vec : trust) {
+            int u = vec[0];
+            int v = vec[1];
+
+            outdegree[u]++;
+            indegree[v]++;
         }
-        return trust[0][1];
+
+        for (int i = 1; i <= n; i++) {
+            if (indegree[i] == n - 1 && outdegree[i] == 0)
+                return i;
+        }
+
+        return -1;
     }
 };
