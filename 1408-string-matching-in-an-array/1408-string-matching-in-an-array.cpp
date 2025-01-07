@@ -7,17 +7,13 @@ public:
             bool flag = 0;
             for(int j=0;j<n;j++){
                 if(j!=i){
-                    for(int k=0;k<words[j].size();k++){
-                        string x;
-                        for(int l=0;l+k<words[j].size();l++){
-                            x.push_back(words[j][k+l]);
-                            if(x == words[i]){
-                                ans.push_back(words[i]);
-                                flag = 1;
-                                break;
-                            }
+                    int len = words[i].size();
+                    for(int k=0;k+len <= words[j].size();k++){
+                        if(words[j].substr(k,len) == words[i]){
+                            ans.push_back(words[i]);
+                            flag = 1;
+                            break;
                         }
-                        if(flag)break;
                     }
                 }
                 if(flag)break;
