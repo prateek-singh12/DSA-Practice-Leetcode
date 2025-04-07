@@ -1,15 +1,15 @@
 class Solution {
- public:
-  int majorityElement(vector<int>& nums) {
-    int ans;
-    int count = 0;
-
-    for (const int num : nums) {
-      if (count == 0)
-        ans = num;
-      count += num == ans ? 1 : -1;
+public:
+    int majorityElement(vector<int>& nums) {
+        int current=0;
+        int count=0;
+        for(int num: nums){
+            if(count==0){
+                current=num;
+            }
+            if(num==current){count++;}
+            else{count--;}
+        }
+        return current;
     }
-
-    return ans;
-  }
 };
