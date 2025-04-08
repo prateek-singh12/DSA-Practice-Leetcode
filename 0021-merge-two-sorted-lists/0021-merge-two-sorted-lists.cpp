@@ -17,7 +17,7 @@ public:
         ListNode* temp = dummyNode;
 
         while(curr1 && curr2) {
-            if(curr1->val < curr2->val) {
+            if(curr1->val <= curr2->val) {
                 temp->next = curr1;
                 temp = curr1;
                 curr1 = curr1->next;
