@@ -12,11 +12,11 @@ public:
                 curr+=quotient;
                 if(num%mid != 0){ curr=curr+1;} //ceiling
             }
-            if(curr>threshold){
-                l=mid+1;
+            if(curr>=threshold){
+                r=mid;
 
             }
-            else r=mid;
+            else l=mid+1;
         }
         return l;
     }
