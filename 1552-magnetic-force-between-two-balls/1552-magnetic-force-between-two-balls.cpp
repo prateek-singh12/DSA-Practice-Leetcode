@@ -1,13 +1,11 @@
 class Solution {
 public:
     int maxDistance(vector<int>& position, int m) {
-        //maximize the minimum distance -> binary search
+                //maximize the minimum distance -> binary search
         sort(position.begin(), position.end());
-        
-        int l = 1; 
-        int r = position.back() - position[0];  // range
+        int l = 0;
+        int r = position.back() - position[0] + 1;
 
-        // Binary Search
         while (l < r) {
             int mid = l + (r - l) / 2;
             int count = 1;
@@ -27,6 +25,6 @@ public:
             }
         }
 
-        return l;  // max distance that works
+        return l - 1;  // max valid distance
     }
 };
