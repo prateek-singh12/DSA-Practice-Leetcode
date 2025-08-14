@@ -1,6 +1,3 @@
-
-
-
 // class Solution {
 // public:
 //     int subarraysDivByK(vector<int>& nums, int k) {
@@ -32,21 +29,20 @@
 class Solution {
 public:
     int subarraysDivByK(vector<int>& nums, int k) {
-        unordered_map<int, int> modCount;
-        modCount[0] = 1; 
-        
-        int sum = 0;
-        int count = 0;
-
-        for (int num : nums) {
-            sum += num;
-            int mod = ((sum % k) + k) % k;
-            if (modCount.find(mod) != modCount.end()) {
-                count += modCount[mod];
+        unordered_map<int,int>modcount;
+        modcount[0]=1;
+        int cursum=0;
+        int ans=0;
+        for(int num:nums){
+            cursum+=num;
+            int currmod=cursum % k;
+            if(currmod<0){ currmod=currmod+k;} 
+            //or int currmod = ((cursum % k) + k) % k;
+            if(modcount.find(currmod)!=modcount.end()){
+                ans+=modcount[currmod];
             }
-            modCount[mod]++;
+            modcount[currmod]++;
         }
-
-        return count;
+        return ans;
     }
 };
