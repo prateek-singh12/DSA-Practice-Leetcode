@@ -8,6 +8,7 @@ public:
             sort(word.begin(), word.end());
             mp[word].push_back(x);
         }
+        //aet : [eat, ate, tea]
         
         vector<vector<string>> ans;
         for(auto x: mp){
