@@ -10,7 +10,7 @@ public:
         int x_parent=find(x,parent);
         int y_parent=find(y,parent);
         if(x_parent != y_parent){
-            parent[y_parent]=x_parent;
+            parent[x_parent]=y_parent; // or  parent[x_parent]=y_parent; 
         }
     }
 
