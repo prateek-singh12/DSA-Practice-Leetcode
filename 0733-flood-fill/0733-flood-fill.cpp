@@ -4,8 +4,7 @@ public:
         int m = image.size();
         int n = image[0].size();
         int initialColor = image[sr][sc];
-        if (initialColor == color) return image;
-
+        
         queue<pair<int, int>> q;
         q.push({sr, sc});
         image[sr][sc] = color;
